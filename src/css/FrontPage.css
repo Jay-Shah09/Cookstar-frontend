@@ -1,0 +1,121 @@
+:root{
+  --primary-clr:#d8123c;
+  --mat:#333333;
+  --light-mode:white;
+  --dark-mode:#181a1c;
+}
+
+@media screen and (max-width:749px){
+  .home-intro-container{
+    height:450px;
+    display: grid;
+    align-content: center;
+    padding:0 30px;
+  }
+  .home-intro-container h1{
+    margin-bottom: 30px;
+  }
+  .home-image-container img{
+    width:100vw;
+    object-fit: cover;
+  }
+  .home-image-container{
+    width:100vw;
+  }
+  /* .home-search-btn{
+    margin:0;
+    padding: 50px;
+    background-color: pink;
+  } */
+}
+
+@media screen and (min-width:750px){
+  .home-info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-intro-container{
+    display:grid;
+    align-content: center;
+    height:610px;
+    padding:0 60px;
+  }
+  .home-intro-container h1{
+    margin-bottom:30px;
+  }
+  .home-image-container img{
+    height:610px;
+    width:100%;
+    object-fit:cover;
+  }
+}
+.home-search-btn{
+  font-size: 20px;
+  width: max-content;
+  background-color: var(--primary-clr);
+  color:var(--light-mode);
+  border-radius: 8px;
+  padding: 9px;
+  text-decoration:none;
+  transition: 0.2s linear;
+  display: inline-block;
+  margin-top: 25px;
+}
+.home-search-btn:hover{
+  background-color: var(--light-mode);
+  color:var(--primary-clr);
+  border:2px solid var(--primary-clr);
+}
+.star{
+  color:var(--primary-clr);
+}
+.intro-para{
+  line-height: 25px;
+}
+.home-list-div{
+  background-color: var(--primary-clr);
+  margin: 10px;
+  margin-bottom:50px;
+  position:relative;
+}
+.home-list-div h2{
+  color:white;
+  text-align: center;
+  padding:30px 0;
+  font-size: 36px;
+}
+
+.home-cards{
+  width:300px;
+}
+
+/* .homePage-recipe-view{
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  margin:auto 4px; 
+  margin-left: 100px;
+  margin: 0 auto;
+  font-weight: bolder;
+  font-size: 20px;
+  padding: 5px;
+} */
+
+/* .homePage-recipe-view:hover {
+  border: none;
+  background: rgb(241, 223, 223);
+} */
+
+.explore {
+  margin: 15px 47%;
+  border:none;
+  background-color: var(--mat);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 480px) and (max-width: 550px) {
+  .explore{
+    margin:15px 40%;
+  }
+}
