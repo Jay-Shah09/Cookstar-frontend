@@ -1,13 +1,8 @@
 import React, {useContext} from 'react';
 import {FaRegHeart} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import {AppContext} from '../context'
-import {FaBookmark} from 'react-icons/fa';
-import {FaRegBookmark} from 'react-icons/fa';
 
 const Card = (props) => {
-    const {counterFunc, fav_btn,bookmark_btn,fillBookmark} = useContext(AppContext);
-
     return (
         <div className="main-card">
             <div className="card-side">
@@ -17,19 +12,13 @@ const Card = (props) => {
                 <div className="card-info-container">
                     <div className="card-info">
                         <h3>{props.title}</h3>
-                        <button className="fav-btn" ref={fav_btn}><FaRegHeart/></button>
-                        {/* <button className="bookmark-btn"><FaRegBookmark/></button> */}
-                        {/* <button className={fillBookmark ? "bookmark-btn bookmarkfill bookmarkfill-hide" : "bookmark-btn bookmarkfill"} ref={bookmark_btn}  onClick={()=>counterFunc(props.title,fav_btn)}><FaBookmark/></button> */}
+                        <button className="fav-btn"><FaRegHeart/></button>
                     </div>
-                    <p>{props.info}</p>
-                    <p>{props.cuisineType}</p>
+                    <p style={{padding:'0 0 0 15px'}}>{props.info}</p>
+                    <p style={{padding:'0 0 0 15px'}}>{props.cuisineType}</p>
+                    <Link to={`/item/${props.title}`} className="recipe-btn">View More</Link>
                 </div>
             </div>
-
-            {/* <div className="card-side back-side">
-                <button className="add-to-fav" onClick={()=>counterFunc(props.title,fav_btn)}>{btnName}</button>
-                <Link to={`/item/${props.title}`} className="recipe-btn">View More</Link>
-            </div> */}
         </div>
     );
 }

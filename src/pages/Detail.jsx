@@ -26,10 +26,8 @@ export default function Detail() {
             }).catch((err)=>alert('hih'));
         }
         fetcher();
-    },[]);
-    useEffect(()=>{
-        
     },[value]);
+    
     console.log(datas);
     return (
         <div className="detail-section">
@@ -47,7 +45,6 @@ export default function Detail() {
                         {datas && <div className="user-avt">{datas[0].username.slice(0,1)}</div>}
                         <div className="username-cont">
                             {datas && <div className="useravtar">{datas[0].username}</div>}
-                            <p>jhbh</p>
                         </div>
                     </div>
                 </Link>}

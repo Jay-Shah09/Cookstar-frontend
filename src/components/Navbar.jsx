@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import "../css/Navbar.css";
 import {Link} from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import our_logo from '../Images/logo.jpeg'
 
 import {userContext} from '../App';
 const Navbar = () => {
@@ -13,17 +14,17 @@ let history=useHistory();
             <nav className="navbar" >
          
 <div className="nav-left">
-{/* <div className="img-logo">
+<div className="img-logo">
 <Link to="/">
 <img className="nav-logo"
-            src="images/logo.png"
+            src={our_logo}
             alt="logo"
           />
-             </Link>
-</div> */}
+</Link>
+</div>
 <Link className="logo-link" to="/">
 <div style={{textDecoration:'none'}} className="nav-logo-name">
-
+{/* <img src={our_logo} alt="our logo"/> */}
 <p className="logo-start"><span>C</span>ook<span>S</span>tar</p>
 
 </div>

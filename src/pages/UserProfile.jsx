@@ -7,6 +7,7 @@ import '../css/UserProfile.css';
 
 function UserProfile() {
     const x = localStorage.getItem("token");
+    const name = localStorage.getItem('username');
     const config = {
         headers: { Authorization: `Bearer ${x}` },
       };
@@ -21,12 +22,11 @@ function UserProfile() {
       console.log(email);
       fetcher();
   },[]);
-
-//   k=datas['0']['email'];
+  
   return (
     <div className="userprofile-container">
 
-      <h1 style={{fontFamily: 'Ephesis',textAlign:'center',padding:'30px'}}>{email}'s All Recipes</h1>
+      <h1 style={{fontFamily: 'Ephesis',textAlign:'center',padding:'40px'}}>{name}'s All Recipes</h1>
 
       <div className="cards-section">
 

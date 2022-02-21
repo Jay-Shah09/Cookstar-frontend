@@ -104,7 +104,7 @@ const UserRecipe = () => {
         .post("http://localhost:3001/recipeData",data, config)
         .then((res) => {
           alert("successfully published");
-          history.push('/users');
+          history.push('/me');
         })
         .catch((err) => {
           alert("Unauthorized!! Login  First");
@@ -118,6 +118,9 @@ const UserRecipe = () => {
   return (
     <>
       <div className="recipeForm-container" >
+      {/* <div className="hide-preloader">
+    <img src="preloader.gif" alt="preloader" class="preloader__item" />
+    </div> */}
         <form  className="foam"
           style={{width: '300px',color:'#D8123C'}}
           enctype="multipart/form-data"
@@ -172,6 +175,7 @@ const UserRecipe = () => {
               <input
               
               onChange={formdatahandler}
+              onkeypress="return event.charCode >= 48" min="1" max="500"
                 type="number"
                 id="serves"
                 name="serves"
@@ -202,7 +206,7 @@ const UserRecipe = () => {
               {ingredients.map((ingredient) => {
                 const { id } = ingredient;
                 return (
-                  <div key={id} className="ingredient-div ing">
+                  <div key={id} className="ingredient-div">
                     <label htmlFor="ingredient" className="bars">
                       <img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGKUMOf_vEXhQJuTzyq-JekZL4eWoWrnYO8Q&usqp=CAU"

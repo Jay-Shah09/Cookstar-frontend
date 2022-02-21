@@ -1,11 +1,11 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
-import '../css/About.css';
 
+import '../css/About.css';
 function About() {
 
     return (
-        <div className="Aboutss" style={{backgroundColor:'#F2FCFF'}}>
+        <div className="About-section">
           <head>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"/>
             <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" rel="stylesheet"/>
@@ -13,11 +13,12 @@ function About() {
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
           </head>
           
-     <section className="section-a">
+     <section className="section-about">
       <div className="container" >
         
-          <h3>ABOUT US</h3>
-          <p style={{fontSize: "20px",color:'#D8123C'}}>
+          <h3 className="white whiter"> ABOUT US
+          <div className="underline"></div>
+          <p className="desc">
             Hey there, <br/>
             Welcome to CookStar.com. 
             <br/>
@@ -31,39 +32,36 @@ function About() {
              <br/>
              Happy Cooking!!!!
         </p>
+        </h3>
         </div>
     </section>
 
     <section className="team">
-        <h2>OUR TEAM</h2>
+        <h2 className="white">  OUR TEAM</h2>
            
 
     <div className="wrapper-grid">
-    <div className="container">
-<a target="_blank" href="https://www.linkedin.com/in/falak-hirani-a102591a1/">    <img className="profile-img"   src="https://media-exp1.licdn.com/dms/image/C4D03AQFnjA1i2d3rzA/profile-displayphoto-shrink_400_400/0/1622723328493?e=1640217600&v=beta&t=O_7D-qRJopcguOnTFgjtL2ASX3pIx9dJnyU0dNt9Kns"/>
-<i class="fab fa-linkedin"></i></a>      <h3 className="name">Falak Hirani</h3>
-      <p className="description">Student</p>
+ 
+    <div className="contain">
+
+    <a target="_blank" href="https://www.linkedin.com/in/smit-soni-3213ba192/">  
+<i class="fab fa-linkedin"><h3 className="name">Smit Soni</h3></i> </a> 
+   
+    </div>
+    <div className="contain">
+
+    <a target="_blank" href="https://www.linkedin.com/in/jay-shah-09/">    
+<i class="fab fa-linkedin"> <h3 className="name">Jay Shah</h3></i></a>  
+    </div>
+    <div className="contain">
+<a target="_blank" href="https://www.linkedin.com/in/falak-hirani-a102591a1/"> 
+<i class="fab fa-linkedin"><h3 className="name">Falak Hirani</h3></i> </a>     
     </div>
 
-    <div className="container">
+    <div className="contain">
 
-    <a target="_blank" href="https://www.linkedin.com/in/niyatipanchal/">    <img className="profile-img"   src="https://media-exp1.licdn.com/dms/image/C5603AQEXcbotxM_Njw/profile-displayphoto-shrink_400_400/0/1619158238856?e=1640217600&v=beta&t=Zx2k6_osyKIFubhtHRHZXW0Yao9udA6aKnh9pfI92Jo"/>
-<i class="fab fa-linkedin"></i></a>     <h3 className="name">Niyati Panchal</h3>
-      <p className="description">Student</p>
-    </div>
-
-    <div className="container">
-
-    <a target="_blank" href="https://www.linkedin.com/in/smit-soni-3213ba192/">    <img className="profile-img"   src="https://media-exp1.licdn.com/dms/image/C5603AQEjm3SCik0XbQ/profile-displayphoto-shrink_400_400/0/1606448325770?e=1640217600&v=beta&t=fJ75RglTS1P2LT8r4EQGWzwq3lCTQWBnRRNOAmBqGPU"/>
-<i class="fab fa-linkedin"></i></a> 
-    <h3 className="name">Smit Soni</h3>
-      <p className="description">Student</p>
-    </div>
-    <div className="container">
-
-    <a target="_blank" href="https://www.linkedin.com/in/jay-shah-09/">    <img className="profile-img"   src="https://media-exp1.licdn.com/dms/image/C4D03AQEHVTaN-qLAbw/profile-displayphoto-shrink_400_400/0/1602317014620?e=1640217600&v=beta&t=JnMQ3mayL1kY7ukp_tHkP178qpc6mCumoMlGQUMJVN0"/>
-<i class="fab fa-linkedin"></i></a>   <h3 className="name">Jay Shah</h3>
-      <p className="description">Student</p>
+    <a target="_blank" href="https://www.linkedin.com/in/niyatipanchal/">   
+<i class="fab fa-linkedin"><h3 className="name">Niyati Panchal</h3></i> </a>    
     </div>
 
  

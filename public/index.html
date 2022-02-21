@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/af2e2e58c0.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +26,18 @@
   <body>
    
 <div id="root"></div>
+<div class="preloader">
+  <img src="preloader.gif" alt="preloader" class="preloader__item" />
+</div>
   <script src="../src/index.js"></script>
+  
+  <script>
+    const preloader = document.querySelector(".preloader");
+
+window.addEventListener("load", function () {
+preloader.classList.add("hide-preloader");
+});
+
+</script>
   </body>
 </html>

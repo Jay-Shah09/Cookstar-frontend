@@ -1,8 +1,8 @@
 .edit-section{
-    width:1500px;
+    /* width:1500px;
     max-width: 90%;
     margin:0 auto;
-    margin-bottom: 130px;
+    margin-bottom: 130px; */
 }
 .edit-profile{
     padding:25px;
@@ -45,6 +45,7 @@
 }
 .edit-form-container{
     position:relative;
+    padding:0 25px;
 }
 .cancel-btn-1{
     position:absolute;
@@ -53,6 +54,7 @@
 }
 @media screen and (min-width:751px){
     .edit-form-container{
-        margin: 50px 30%;
+        margin: 50px 32%;
+        padding:0;
     }
 }

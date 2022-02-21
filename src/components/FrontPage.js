@@ -3,35 +3,36 @@ import List from "./List";
 import axios from 'axios'
 import {Link} from 'react-router-dom';
 import "../css/FrontPage.css";
-import Footer from "./Footer";
-import bannerImg from '../Images/main-banner1.jpg';
+import banner_img from '../Images/recipe-banner.png'; 
 
 const Home = () => {
   // CHECKING BACKEND CONNECTION
-//   useEffect(()=>{
-//    async function ef() {   let aa=  await axios.get('http://localhost:3001/');
-//    console.log(aa.data);}
-//  ef();
-//   },[]);
+  // useEffect(()=>{
+
+  // },[Trend]);
   
   return (
       <>
     <div className="whole-page">
       <div className="home-info">
-        <section className="home-intro-container">
-          <h1>Cook Your meal with Cook<span class="star">Star</span></h1>
+      
+        <section>
+        <div className="home-image-container"> 
+          <img src={banner_img} alt=""/>
+        </div>
+        <section  className="home-intro-container">
+        <p  className="logo-start-home">Cookstar</p>
+        <Link to="/search" className="home-search-btn" >Search Recipes</Link>
+
+          <h1 className="intro-head">Cook Your meal with CookStar</h1>
           <p className="intro-para">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error,
             consequatur veritatis veniam velit voluptas tempore at aliquid
             ducimus optio ab magni, neque, quos officiis dolore perspiciatis
-            maiores amet esse alias! Incidunt magni non corrupti sit at adipisci
-            suscipit voluptas distinctio!
+            maiores amet esse alias! 
           </p>
 
-        <Link to="/search" className="home-search-btn" >Search Recipe</Link>
         </section>
-        <section className="home-image-container">
-          <img src={bannerImg} alt="banner"/>
         </section>
       </div>
       <div>
@@ -44,12 +45,13 @@ const Home = () => {
         </div> */}
         {/* <List name="Recent Recipes" /> */}
 
-        <List name="Favourite Recipes" />
+        <List  name="Trending Recipes" />
       </div>
     </div>
-<Footer/>
+
     </>
   );
 };
 
 export default Home;
+

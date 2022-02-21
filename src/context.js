@@ -7,6 +7,7 @@ const ContextAPI = ({children})=>{
     const [result,setResult]=useState([]);
     const [userRecipes,setUserRecipes] = useState([]);
     const [value,setValue] = useState(0);
+    const [likeValue,setLikeValue] = useState(0);
 
     const m = localStorage.getItem("email");
     const x = localStorage.getItem("token");
@@ -92,13 +93,9 @@ const ContextAPI = ({children})=>{
           alert("Unauthorized!! Login! First"+err);
         });
     }
-
-    // const getSavedRecipes = () => {
-
-    // }
     return (
         <AppContext.Provider
-            value={{result,setResult,getRecipes,bookmarkHandler,unBookmarkHandler,value}}
+            value={{result,setResult,getRecipes,bookmarkHandler,unBookmarkHandler,value,likeValue,setLikeValue}}
             >
             {children}
         </AppContext.Provider>

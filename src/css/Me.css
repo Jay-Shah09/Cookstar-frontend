@@ -5,9 +5,12 @@
     --dark-mode:#181a1c;
 }
 .me-section{
-    width:1500px;
+    /* width:1500px;
     max-width: 90%;
-    margin:0 auto;
+    margin:0 auto; */
+}
+.cards-section-saved,.cards-section-myrecipes{
+    margin-top: 40px;
 }
 .myprofile-container{
     margin: 6px 0 40px 0;
@@ -40,7 +43,7 @@
 }
 .saved-myrecipes-container ul{
     display:grid;
-    grid-template-columns: 90px 123px;
+    grid-template-columns: 123px 90px;
     padding:20px 0 0 0;
     list-style-type: none;
 }
@@ -69,7 +72,7 @@
 }
 @media screen and (max-width:750px){
     .me-section{
-        max-width: 80%;
+        /* max-width: 80%; */
     }
     .saved-recipe-content{
         width:80vw;
@@ -77,6 +80,6 @@
 }
 @media screen and (min-width:751px){
     .myprofile-container{
-        margin:6px 30%;
+        margin: 6px 32%;
     }
 }

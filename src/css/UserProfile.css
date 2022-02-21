@@ -4,7 +4,7 @@
     --light-mode:white;
     --dark-mode:#181a1c;
 }
-.userprofile-container{
+/* .userprofile-container{
     width:1500px;
     max-width: 90%;
     margin:0 auto;
@@ -13,4 +13,4 @@
     .userprofile-container{
         max-width: 80%;
     }
-}
+} */

@@ -11,14 +11,15 @@ import { AppContext } from '../context';
 
 function Me() {
     let history=useHistory();
+    const {likeValue} = useContext(AppContext);
     const x=localStorage.getItem('token');
     const config = {
         headers: { Authorization: `Bearer ${x}` }
     };  
 
     const [res,setRes] = useState([]);
-    const [saved,setSaved] =useState(true);
-    const [myrecipe,setMyRecipe] = useState(false);
+    const [saved,setSaved] =useState(false);
+    const [myrecipe,setMyRecipe] = useState(true);
     const [resi,setResi] = useState();
     const [bag,setBag] = useState();
 
@@ -32,30 +33,27 @@ function Me() {
     }
     useEffect(()=>{
         async function getBookmark(){
-            await axios.get('http://localhost:3001/userRecipe',).then((response)=>{
+            await axios.get('http://localhost:3001/userRecipe').then((response)=>{
                 setResi(response.data);
-                console.log(resi)
-               
             }).catch((err)=>alert(err));
         }
         getBookmark();
         async function fetcher(){
             await axios.get('http://localhost:3001/me',config).then(res=>{
-                console.log(res.data); setRes(res.data)}).catch(err=>{alert('Unauthorized !! Please Login');
+                console.log(res.data); setRes(res.data)}).catch(err=>{alert('Unauthorized !! Please Login Jay');
                 history.push('/login');});
             }
             fetcher();
         // console.log(bag);
         // console.log(resi);
-    },[]);
+    },[likeValue]);
     useEffect(()=>{
         resi && setBag(resi.filter((item)=>{
             if(item.bookmark.includes(localStorage.getItem('email'))){
                 return item;
             }
         }));
-        console.log(bag);
-    },[resi,bag]);
+    },[resi,likeValue]);
     
     // const savedCount = bagItems.length + bagItemsUsers.length;
     return (
@@ -68,15 +66,23 @@ function Me() {
                 </div>
                 <div className="saved-myrecipes-container">
                     <ul>
-                        <li className={saved ? "border-bottom" : ""}><a href="#" onClick={toggleSavedRecipe}>Saved <span></span></a></li>
                         <li className={myrecipe ? "border-bottom" : ""}><a href="#" onClick={toggleMyRecipe}>My Recipes</a></li>
+                        <li className={saved ? "border-bottom" : ""}><a href="#" onClick={toggleSavedRecipe}>Saved <span></span></a></li>
                     </ul>
                 </div>
             </div>
             {/* {state &&<h1 style={{fontFamily: 'Ephesis',textAlign:'center',margin:'40px'}}> {localStorage.getItem('username')} 's All Recipes</h1>} */}
 
             {
-                saved && <div className="cards-section">
+                myrecipe && <div className="cards-section cards-section-myrecipes">
+                {res.map((item,i)=>( 
+                    <Cards key={i} id={item._id} img={item.image} title={item.recipetitle} username={item.username} like={item.like}/>
+                ))}
+            </div>
+            }
+
+            {
+                saved && <div className="cards-section cards-section-saved">
                     {bag && bag.length==0 && <div className="saved-recipe-content">
                         You can find your saved recipes here.
                     </div>}
@@ -89,14 +95,6 @@ function Me() {
                         return <Cards key={i} id={item._id} img={item.image} title={item.recipetitle} username={item.username} like={item.like}/>
                     })}
                 </div>
-            }
-
-            {
-                myrecipe && <div className="cards-section">
-                {res.map((item,i)=>( 
-                    <Cards key={i} id={item._id} img={item.image} title={item.recipetitle} username={item.username} like={item.like}/>
-                ))}
-            </div>
             }
                         
         </div>

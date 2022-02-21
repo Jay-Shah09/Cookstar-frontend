@@ -4,8 +4,10 @@ import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useState, useContext } from "react";
 import Carousel from 'react-elastic-carousel';
 import Cards from './Cards';
+import Trend from './Trend'
 // import '../css/FrontPage.css';
 import axios from "axios";
+import { AppContext } from '../context';
 
 const breakPoints = [
   {width: 1, itemsToShow: 1},
@@ -16,28 +18,40 @@ const breakPoints = [
 
 const List = ({ name,routes}) => {
   const [userData,setUserData] = useState([]);
-
+  const {likeValue} = useContext(AppContext);
+  let carouselUserData,carouselUserDataTrending;
   React.useEffect(()=>{
       async function fetches() {
-      const result = await axios.get('http://localhost:3001/userRecipe');
-      setUserData(result.data);
+      await axios.get('http://localhost:3001/userRecipe').then((result)=>{
+        setUserData(result.data);
+        console.log(userData);
+        
+      }).catch((err)=>alert(err));
     }
     fetches();
-  },[]);
+  },[likeValue]);
 
-  const carouselUserData = userData.slice(0,7);
-
+  carouselUserData = userData.slice(0,7);
+  
   return (
     <div className="home-list-div">
-      <h2>{name}</h2>
-      <Carousel breakPoints={breakPoints}>
-        {
-          carouselUserData.map((item,i)=>{
-            return(<Cards key={i} id={item._id} img={item.image} title={item.recipetitle} username={item.username} like={item.like}/>)
-          })
+      <div className="explore-container">
+        <h2 className="home-list-title" style={{color:'black'}}>{name}</h2>
+        {name === "User's Recipes" && <Link to={routes} className="explore">All Recipes of users </Link>}
+      </div>
+        {name === "User's Recipes" ?
+              <Carousel breakPoints={breakPoints}>
+                {carouselUserData.map((item,i)=>( 
+                  <Cards key={i} id={item._id} img={item.image} title={item.recipetitle} username={item.username} like={item.like}/>
+                ))}
+              </Carousel> : 
+              <Trend/>
+              // <Carousel breakPoints={breakPoints}>
+              //   {carouselUserData.map((item,i)=>( 
+              //     <Cards key={i} id={item._id} img={item.image} title={item.recipetitle} username={item.username} like={item.like}/>
+              //   ))}
+              // </Carousel>
         }
-      </Carousel>
-      {name === "User's Recipes" ? <Link to={routes}> <button className="home-search-btn explore">Explore</button></Link> : <p></p>}
     </div>
   );
 };

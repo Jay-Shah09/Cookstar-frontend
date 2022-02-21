@@ -4,13 +4,13 @@
     --light-mode:white;
     --dark-mode:#181a1c;
 }
-.user-recipe-page{
+.cards-section{
     width:1500px;
-    max-width: 90%;
+    max-width: 71%;
     margin:0 auto;
 }
 @media screen and (max-width:750px){
-    .user-recipe-page{
-        max-width: 80%;
+    .cards-section{
+        max-width: 56%;
     }
 }

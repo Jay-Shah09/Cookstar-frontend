@@ -4,6 +4,7 @@ import '../css/SearchPage.css'
 import {AppContext} from '../context'
 import SearchBar from '../components/SearchBar';
 import Card from '../components/Card';
+import banner_img from '../Images/recipe-banner.png';
 
 function Search() {
 
@@ -36,13 +37,15 @@ function Search() {
         <div>
             <section className="search-section-container">
                 <div className="searchbar-filter-section">
-                    <SearchBar submits={(e)=>sunbm(e)}  meth={(e)=>setRecipeName(e.target.value)} name={recipeName}/>
-                    <article className="filter-section">
-                        <h2>Filter Your Recipes</h2>
-                        <div className="filter-container">
+                    <div className="banner2-container">
+                        <img src={banner_img} alt="banner"/>
+                    </div>
+                    <div className="banner-info">
+                        <h1 className="banner-info-content">CookStar</h1>
+                        <h3 className="banner-info-content">Search wide range of recipes here</h3>
+                        <div className="searchbar-component">
                             <div className="filter1-dietInput">
-                                <h3>Diet Options</h3>
-                                <select id="dietInput" onChange={(e)=>setDietF1(e.target.value)}>
+                                {/* <h3>Diet Options</h3> */}                                <select id="dietInput" onChange={(e)=>setDietF1(e.target.value)}>
                                     <option value="none"></option>
                                     <option value="balanced">balanced</option>
                                     <option value="high-protein">high-protein</option>
@@ -50,32 +53,22 @@ function Search() {
                                     <option value="low-carb">low-carb</option>
                                 </select>
                             </div>
-                            <div className="filter2-healthInput">
-                                <h3>Health Options</h3>
-                                <select id="healthInput" onChange={(e)=>setHealthF2(e.target.value)}>
-                                    <option value="none"></option>
-                                    <option value="sugar-conscious">sugar-conscious</option>
-                                    <option value="peanut-free">peanut-free</option>
-                                    <option value="tree-nut-free">tree-nut-free</option>
-                                    <option value="alcohol-free">alcohol-free</option>
-                                    <option value="vegan">vegan</option>
-                                    <option value="vegetarian">vegetarian</option>
-                                </select>
-                            </div>
-                            <div className="filter3-healthInput">
-                                <h3>Health Options</h3>
-                                <select id="healthInput" onChange={(e)=>setHealthF2(e.target.value)}>
-                                    <option value="none"></option>
-                                    <option value="sugar-conscious">sugar-conscious</option>
-                                    <option value="peanut-free">peanut-free</option>
-                                    <option value="tree-nut-free">tree-nut-free</option>
-                                    <option value="alcohol-free">alcohol-free</option>
-                                    <option value="vegan">vegan</option>
-                                    <option value="vegetarian">vegetarian</option>
-                                </select>
-                            </div>
+                            {/* <div>jay</div> */}
+                            <SearchBar submits={(e)=>sunbm(e)}  meth={(e)=>setRecipeName(e.target.value)} name={recipeName}/>
                         </div>
-                    </article>
+                    {/* <div className="filter2-healthInput">
+                            <h3>Health Options</h3>
+                            <select id="healthInput" onChange={(e)=>setHealthF2(e.target.value)}>
+                                <option value="none"></option>
+                                <option value="sugar-conscious">sugar-conscious</option>
+                                <option value="peanut-free">peanut-free</option>
+                                <option value="tree-nut-free">tree-nut-free</option>
+                                <option value="alcohol-free">alcohol-free</option>
+                                <option value="vegan">vegan</option>
+                                <option value="vegetarian">vegetarian</option>
+                            </select>
+                        </div> */}    
+                    </div>
                 </div>
                 
                 <article className="cards-section">
