@@ -5,10 +5,15 @@ import {AppContext} from '../context'
 import SearchBar from '../components/SearchBar';
 import Card from '../components/Card';
 import banner_img from '../Images/recipe-banner.png';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
+import axios from 'axios';
 
 function Search() {
-
-    const {getRecipes, result} = useContext(AppContext);
+    const [open, setOpen] = React.useState(false);
+    const [result,setResult]=useState([]);
+    // const {getRecipes, result} = useContext(AppContext);
     const [recipeName, setRecipeName] = useState("");
     const [dietF1,setDietF1] = useState(null);
     const [healthF2,setHealthF2] = useState(null);
@@ -18,6 +23,7 @@ function Search() {
     
     function sunbm(e){
         e.preventDefault();
+        setOpen(true);
         const diet = dietF1;
         const health = healthF2;
         const filter1 = "&diet=";
@@ -30,6 +36,11 @@ function Search() {
         }
         if (health !== null) {
             url += filter2 + health;
+        }
+        async function getRecipes(url){
+            var res=  await axios.get(url);
+            if(res.data.hits.length==0){  alert("NO RESULT FOUND");setOpen(false);}
+            setResult(res.data.hits);
         }
         getRecipes(url);   
     }
@@ -54,7 +65,7 @@ function Search() {
                                 </select>
                             </div>
                             {/* <div>jay</div> */}
-                            <SearchBar submits={(e)=>sunbm(e)}  meth={(e)=>setRecipeName(e.target.value)} name={recipeName}/>
+                            <SearchBar submits={(e)=>sunbm(e)}  meth={(e)=>{setRecipeName(e.target.value);setResult([]); setOpen(false);}} name={recipeName}/>
                         </div>
                     {/* <div className="filter2-healthInput">
                             <h3>Health Options</h3>
@@ -71,12 +82,25 @@ function Search() {
                     </div>
                 </div>
                 
-                <article className="cards-section">
+                {/* <article className="cards-section">
+                    {result.map((recipes,index)=>{
+                        return ( 
+                        <Card key={index} id={index} link={recipes.recipe.url} info={recipes.recipe.mealType} title={recipes.recipe.label} img={recipes.recipe.image} cuisineType={recipes.recipe.cuisineType}/>);
+                    })}
+                </article> */}
+                { (result.length == 0 &&open==true)?    <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      
+       open={true}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>:  <article className="cards-section">
                     {result.map((recipes,index)=>{
                         return ( 
                         <Card key={index} id={index} link={recipes.recipe.url} info={recipes.recipe.mealType} title={recipes.recipe.label} img={recipes.recipe.image} cuisineType={recipes.recipe.cuisineType}/>);
                     })}
                 </article>
+                }
                 
             </section>
         </div>

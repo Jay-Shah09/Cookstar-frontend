@@ -23,10 +23,7 @@ const ContextAPI = ({children})=>{
         fetches();
     },[]);
     
-    async function getRecipes(url){
-        var res=  await axios.get(url);
-        setResult(res.data.hits);
-    }
+    
     
     // const counterFunc = (name,fav_btn)=>{
     //     result.map((recipes)=>{
@@ -95,7 +92,7 @@ const ContextAPI = ({children})=>{
     }
     return (
         <AppContext.Provider
-            value={{result,setResult,getRecipes,bookmarkHandler,unBookmarkHandler,value,likeValue,setLikeValue}}
+            value={{result,setResult,bookmarkHandler,unBookmarkHandler,value,likeValue,setLikeValue}}
             >
             {children}
         </AppContext.Provider>

@@ -46,7 +46,7 @@ const Cards = (props) => {
             </div>
             <div className="card-info-container">
               <div className="card-info">
-                <h3>{props.title}</h3>
+                <h3>{props.title.length>15 ? `${props.title.substring(0,12)}...` : props.title}</h3>
                   {props.like.includes(m) ? <button className="like-btn"> <i style={{color: 'red',fontSize: '22px'}} onClick={unlikeHandler} class="fas fa-thin fa-heart"></i>  
                   <h3 style={{marginTop:'4px'}}>{props.like.length}</h3></button> : 
                   <button className="like-btn"> <i style={{fontSize: '22px'}} onClick={likeHandler} class="fas fa-thin fa-heart"></i><h3 style={{marginTop:'4px'}}>{props.like.length}</h3></button>}
